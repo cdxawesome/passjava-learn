@@ -1,0 +1,17 @@
+#server:
+#  port: 8005
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.203.129:8848
+#    alicloud:
+#      access-key: LTAI5tR5mxK9EyyRKQfQvYgz
+#      secret-key: LVCsacFQqmb0l9OOsrJNodSGNm24nv
+#      oss:
+#        endpoint: oss-cn-guangzhou.aliyuncs.com
+#        bucket: cdx-passjava
+#  application:
+#    name: passjava-thirdparty
+
+
