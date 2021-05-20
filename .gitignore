@@ -1,6 +1,5 @@
 ### gradle ###
 .gradle
-/build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -22,7 +21,6 @@ rebel.xml
 
 ### NetBeans ###
 nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
@@ -57,7 +55,6 @@ target/
 Thumbs.db
 Servers
 .metadata
-upload
 gen_code
 
 ### database ###

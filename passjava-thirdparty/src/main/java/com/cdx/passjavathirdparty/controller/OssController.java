@@ -67,8 +67,6 @@ public class OssController {
             respMap.put("dir", dir);
             respMap.put("host", host);
             respMap.put("expire", String.valueOf(expireEndTime / 1000));
-//            respMap.put("key", accessKey);
-
 
         } catch (Exception e) {
             // Assert.fail(e.getMessage());
