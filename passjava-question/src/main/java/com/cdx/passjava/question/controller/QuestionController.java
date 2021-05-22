@@ -40,8 +40,9 @@ public class QuestionController {
      */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params) {
+        long time = System.currentTimeMillis();
         PageUtils page = questionService.queryPage(params);
-
+        System.out.println("耗时：" + (System.currentTimeMillis() - time));
         return R.ok().put("page", page);
     }
 
@@ -116,6 +117,10 @@ public class QuestionController {
         return R.ok();
     }
 
+    @RequestMapping("/testPower")
+    public String testPower() {
+        return "test";
+    }
 
 
 }

@@ -16,6 +16,9 @@
 #        bucket: cdx-passjava
 #  application:
 #    name: passjava-question
+#  redis:
+#    host: 192.168.188.128
+#    port: 6379
 #mybatis-plus:
 #  mapper-locations: classpath:/mapper/**/*.xml
 #  global-config:
