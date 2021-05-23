@@ -42,7 +42,6 @@ public class QuestionController {
     public R list(@RequestParam Map<String, Object> params) {
         long time = System.currentTimeMillis();
         PageUtils page = questionService.queryPage(params);
-        System.out.println("耗时：" + (System.currentTimeMillis() - time));
         return R.ok().put("page", page);
     }
 

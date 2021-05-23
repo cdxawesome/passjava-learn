@@ -93,7 +93,7 @@
 import AddOrUpdate from './type-add-or-update'
 
 export default {
-  data () {
+  data() {
     return {
       dataForm: {
         key: ''
@@ -110,12 +110,12 @@ export default {
   components: {
     AddOrUpdate
   },
-  activated () {
+  activated() {
     this.getDataList()
   },
   methods: {
     // 获取数据列表
-    getDataList () {
+    getDataList() {
       this.dataListLoading = true
       this.$http({
         url: this.$http.adornUrl('/question/type/list'),
@@ -128,6 +128,7 @@ export default {
       }).then(({data}) => {
         if (data && data.code === 0) {
           this.dataList = data.page.list
+          console.log(this.dataList)
           this.totalPage = data.page.totalCount
         } else {
           this.dataList = []
@@ -136,30 +137,35 @@ export default {
         this.dataListLoading = false
       })
     },
+
+    // getTypeList(list) {
+    //
+    // },
+
     // 每页数
-    sizeChangeHandle (val) {
+    sizeChangeHandle(val) {
       this.pageSize = val
       this.pageIndex = 1
       this.getDataList()
     },
     // 当前页
-    currentChangeHandle (val) {
+    currentChangeHandle(val) {
       this.pageIndex = val
       this.getDataList()
     },
     // 多选
-    selectionChangeHandle (val) {
+    selectionChangeHandle(val) {
       this.dataListSelections = val
     },
     // 新增 / 修改
-    addOrUpdateHandle (id) {
+    addOrUpdateHandle(id) {
       this.addOrUpdateVisible = true
       this.$nextTick(() => {
         this.$refs.addOrUpdate.init(id)
       })
     },
     // 删除
-    deleteHandle (id) {
+    deleteHandle(id) {
       var ids = id ? [id] : this.dataListSelections.map(item => {
         return item.id
       })

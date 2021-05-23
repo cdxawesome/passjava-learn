@@ -53,36 +53,42 @@
 </template>
 
 <script>
+import typeList from './type'
+
 export default {
-  data () {
+  components: {
+    typeList
+  },
+  data() {
     return {
-      types: [
-        {
-          id: 1,
-          type: 'javaBasic',
-          comments: 'Java基础'
-        },
-        {
-          id: 2,
-          type: 'jvm',
-          comments: 'jvm虚拟机'
-        },
-        {
-          id: 3,
-          type: 'spring',
-          comments: 'Spring核心原理'
-        },
-        {
-          id: 4,
-          type: 'bigData',
-          comments: '大数据'
-        },
-        {
-          id: 5,
-          type: 'thread',
-          comments: '多线程'
-        }
-      ],
+      types: [],
+      // types: [
+      //   {
+      //     id: 1,
+      //     type: 'javaBasic',
+      //     comments: 'Java基础'
+      //   },
+      //   {
+      //     id: 2,
+      //     type: 'jvm',
+      //     comments: 'jvm虚拟机'
+      //   },
+      //   {
+      //     id: 3,
+      //     type: 'spring',
+      //     comments: 'Spring核心原理'
+      //   },
+      //   {
+      //     id: 4,
+      //     type: 'bigData',
+      //     comments: '大数据'
+      //   },
+      //   {
+      //     id: 5,
+      //     type: 'thread',
+      //     comments: '多线程'
+      //   }
+      // ],
       value: '',
       key: '',
       visible: false,
@@ -147,13 +153,31 @@ export default {
     }
   },
   methods: {
-    dialogClose () {
+    // 获取题目类型的函数，目的是为了题目类型选择的下拉列表能动态的显示
+    getDataList() {
+      this.$http({
+        url: this.$http.adornUrl('/question/type/list'),
+        method: 'get',
+        params: this.$http.adornParams({
+          'page': "1",
+          'limit': "10",
+          'key': ""
+        })
+      }).then(({data}) => {
+        if (data && data.code === 0) {
+         this.types=data.page.list
+        } else {
+        }
+      })
+    },
+    dialogClose() {
       this.dataForm.type = ''
     },
-    chooseType (e) {
+    chooseType(e) {
       console.log(e)
     },
-    init (id) {
+    init(id) {
+      this.getDataList();
       this.dataForm.id = id || 0
       this.visible = true
       this.$nextTick(() => {
@@ -182,7 +206,7 @@ export default {
       })
     },
     // 表单提交
-    dataFormSubmit () {
+    dataFormSubmit() {
       this.$refs['dataForm'].validate(valid => {
         if (valid) {
           this.$http({

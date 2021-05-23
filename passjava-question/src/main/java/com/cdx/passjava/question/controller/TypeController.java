@@ -44,7 +44,6 @@ public class TypeController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = typeService.queryPage(params);
-
         return R.ok().put("page", page);
     }
 
