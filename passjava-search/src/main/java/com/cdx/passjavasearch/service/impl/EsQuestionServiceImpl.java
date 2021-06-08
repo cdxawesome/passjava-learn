@@ -1,8 +1,6 @@
 package com.cdx.passjavasearch.service.impl;
 
 import cdx.common.to.es.QuestionEsModel;
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONConverter;
 import cn.hutool.json.JSONUtil;
 import com.cdx.passjavasearch.config.EsConstant;
 import com.cdx.passjavasearch.service.EsQuestionService;

@@ -18,9 +18,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/thirdparty/v1/admin/oss")
 public class OssController {
-    /* TODO:为什么这里是用OSS，而不是OSSClient呢？之前用OSSClient测试的时候是可以注入的，
-        这里如果换成OSSClient就会提示找不到这个类的错误
-     */
     @Autowired
     OSS ossClient;
 

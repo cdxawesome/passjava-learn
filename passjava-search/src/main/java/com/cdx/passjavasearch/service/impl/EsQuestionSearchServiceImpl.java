@@ -65,7 +65,7 @@ public class EsQuestionSearchServiceImpl implements EsQuestionSearchService {
             searchResponse = client.search(request, RequestOptions.DEFAULT);
 
             // 3、分析结果
-            System.out.println(searchResponse.toString());
+//            System.out.println(searchResponse.toString());
             // 3.1）获取查到的数据。
             SearchHits hits = searchResponse.getHits();
             // 3.2）获取真正命中的结果
